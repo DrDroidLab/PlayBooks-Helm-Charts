@@ -1,0 +1,11 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: standard-sc
+  app.kubernetes.io/managed-by: Helm
+  meta.helm.sh/release-name: playbooks
+  meta.helm.sh/release-namespace: playbooks
+provisioner: ebs.csi.aws.com
+parameters:
+  type: gp2
+reclaimPolicy: Retain

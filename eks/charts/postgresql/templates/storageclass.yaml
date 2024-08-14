@@ -1,0 +1,8 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: standard
+provisioner: ebs.csi.aws.com # Use this for AWS EKS
+parameters:
+  type: gp2
+reclaimPolicy: Retain
