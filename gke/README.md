@@ -1,5 +1,5 @@
-# Helm Charts for EKS
-This folder includes the helm charts compatible with EKS from AWS.
+# Helm Charts for GKE
+This folder includes the helm charts compatible with Standard GKE Clusters in GCP.
 
 ## Pre-Requisite
 [Helm](https://helm.sh) must be installed to use the charts.
@@ -7,17 +7,15 @@ Please refer to Helm's [documentation](https://helm.sh/docs/) to get started.
 
 ## Usage
 
-You will need to mention the subnets of your kubernetes cluster in the ```web-ingress.yaml``` file.
-
-Once subnets are added, run the following:
+Run the following:
 
 ```
 helm install playbooks .
 ```
 
-Find your ingress endpoint to access the portal:
+Find your service external IP to access the portal:
 ```
-kubectl get ingress web-ingress -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'
+kubectl get svc web -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
 ```
 
 Note:
